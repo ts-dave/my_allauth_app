@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    User Profile
+{% endblock title %}
+
+
+{% block content %}
+    
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="title mb-4">Profile</p>
+      
+            <div class="columns">
+              <div class="column"></div>
+              <div class="column is-4">
+                  <ul class="mt-0">
+                      <li> Username : <span class="has-text-weight-semibold">{{ user.username }}</span></li>
+                      <li> Firstname : <span class="has-text-weight-semibold">{{ user.first_name }}</span></li>
+                      <li> Lastname : <span class="has-text-weight-semibold">{{ user.last_name }}</span></li>
+                      <li> Email : <span class="has-text-weight-semibold">{{ user.email }}</span></li>
+                      <li> Date Joined : <span class="has-text-weight-semibold">{{ user.date_joined }}</span></li>
+                  </ul>     
+
+      
+                    <button class="button is-danger is-fullwidth mt-2 has-text-weight-semibold">
+                        <a href="{% url 'account_logout' %}" class="has-text-white">
+                            Sign Out
+                        </a>
+                    </button>
+    
+      
+              </div>
+              <div class="column"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock content %}
+    

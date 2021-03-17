@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block title %}
+  Sign Up
+{% endblock title %}
+  
+
+{% block content %}
+
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title mb-6">Sign up</p>
+
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-4">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                      {{ form.email|add_class:"input is-info" }}
+                      <!-- <input
+                        class="input is-info"
+                        type="email"
+                        placeholder="Email"
+                        required
+                      /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fad fa-grip-horizontal"></i>
+                      </span>
+                    </p>
+                    <p class="help is-danger has-text-left is-hidden"></p>
+                  </div>
+
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                      {{ form.username|add_class:"input is-info" }}
+                      <!-- <input
+                        class="input is-info"
+                        type="text"
+                        placeholder="Username"
+                        required
+                      /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fad fa-grip-horizontal"></i>
+                      </span>
+                    </p>
+                    <p class="help is-danger has-text-left is-hidden">This username is taken</p>
+                  </div>
+
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      {{ form.password1|add_class:"input is-info" }}
+                      <!-- <input class="input is-info" type="password" placeholder="Password" required /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                    
+                    {% if form.password1.errors %}
+                    <p class="help is-danger has-text-left is-hidden">password errors</p>
+                    {% endif %}
+                  </div>
+
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      {{ form.password2|add_class:"input is-info" }}
+                      <!-- <input class="input is-info" type="password" placeholder="Confirm password" required /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                    <p class="help is-danger has-text-left is-hidden">Password must be more than 8 chars</p>
+                  </div>
+                          
+                  <div class="field">
+                    <p class="control is-fullwidth mt-3">
+                      <button class="button is-danger is-fullwidth">
+                        Sign up
+                      </button>
+                    </p>
+                  </div>
+            </form>
+
+            <p class="is-size-7 has-text-centered has-text-grey has-text-weight-semibold mt-3">Already have an account?<a href="{{ login_url }}"> Log in</a></p>
+
+
+        </div>
+        <div class="column"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

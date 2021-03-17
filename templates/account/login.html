@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% get_providers as socialaccount_providers %}
+
+
+{% block title %}
+  Sign In
+{% endblock title %}
+  
+
+{% block content %}
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title mb-6">MyAuth Login</p>
+
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column is-4">
+            <form class="login" method="POST" action="{% url 'account_login' %}"">
+              {% csrf_token %}
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                      {{ form.login|add_class:"input is-info" }}
+                      <!-- <input
+                        class="input is-info"
+                        type="email"
+                        placeholder="Email"
+                        required
+                      /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fad fa-grip-horizontal"></i>
+                      </span>
+                    </p>
+                    <p class="help is-danger has-text-left is-hidden">This username is taken</p>
+                  </div>
+
+                  <div class="field mb-1">
+                    <p class="control has-icons-left">
+                      {{ form.password|add_class:"input is-info"}}
+                      <!-- <input class="input is-info" type="password" placeholder="Password" required /> -->
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                    <p class="help is-danger has-text-left is-hidden">Password must be more than 8 chars</p>
+                  </div>
+    
+                  <p class="has-text-weight-semibold is-size-7 has-text-left"><a class="has-text-grey" href="{% url 'account_reset_password' %}">Forgot your password?</a></p>
+                  
+                  <div class="field has-text-left mt-1 mb-0">
+                    <p class="control has-text-left">
+                      <label class="checkbox has-text-weight-semibold is-size-7 has-text-grey" > 
+                        {{ form.remember }}
+                        Remember me
+                      </label>
+                    </p>
+                  </div>
+
+                  <div class="field mt-1">
+                    <p class="control is-fullwidth">
+                      <button class="button is-danger is-fullwidth">
+                        Log in
+                      </button>
+                    </p>
+                  </div>
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+            </form>
+
+                  <p class="has-text-weight-semibold has-text-grey mt-2 is-size-7">OR</p>
+
+                    <a href="{% provider_login_url 'facebook' %}" class="has-text-white">
+                      <button class="button is-link is-fullwidth mt-2 has-text-weight-semibold">
+                      <i class="fab fa-facebook has-text-weight-bold mr-4 has-text-white"></i>Continue with Facebook
+                    </button>
+                  </a>
+
+                    <a href="{% provider_login_url 'google' %}" class="has-text-white">
+                      <button class="button is-info is-fullwidth mt-2 has-text-weight-semibold">
+                        <i class="fab fa-google has-text-weight-bold mr-5"></i>Continue with Google
+                    </button>
+                    </a>
+                  <p class="is-size-7 has-text-centered has-text-grey has-text-weight-semibold mt-3">Not having an account?<a href="{{ signup_url }}"> Sign Up</a></p>
+
+
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
