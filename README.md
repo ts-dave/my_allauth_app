@@ -1,5 +1,5 @@
 # MyAuth
-Authentication system with django-allauth
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ts-dave/myauth) 
 ![GitHub](https://img.shields.io/github/license/ts-dave/myauth)
 
 <img src="screenshot.png">
