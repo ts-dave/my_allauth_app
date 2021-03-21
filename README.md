@@ -1,5 +1,6 @@
 # MyAuth
-Authentication system using django-allauth
+Authentication system with django-allauth
+https://img.shields.io/github/license/ts-dave/myauth
 
 <img src="screenshot.png">
 
