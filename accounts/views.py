@@ -4,8 +4,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import View
 from accounts.models import User
 
-# Create your views here.
-
 
 class HomeView(View):
 
