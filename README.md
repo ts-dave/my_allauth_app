@@ -1,6 +1,6 @@
 # MyAuth
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ts-dave/myauth) 
-![GitHub](https://img.shields.io/github/license/ts-dave/myauth) [![Build Status](https://travis-ci.org/ts-dave/myauth.svg?branch=main)](https://travis-ci.org/ts-dave/myauth) 
+![GitHub](https://img.shields.io/github/license/ts-dave/myauth) [![Build Status](https://travis-ci.org/ts-dave/myauth.svg?branch=main)](https://travis-ci.org/ts-dave/myauth) [![codecov](https://codecov.io/gh/ts-dave/myauth/branch/main/graph/badge.svg?token=3PQJ7I8DQF)](https://codecov.io/gh/ts-dave/myauth)
 
 <img src="screenshot.png">
 
