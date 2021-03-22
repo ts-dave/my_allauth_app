@@ -9,6 +9,7 @@ install:
     - pip install -r requirements.txt
 scripts:
     - python manage.py test
-    # - coverage run --source='authentication' manage.py test && coverage report
-# after_success:
-#     - codecov
+    - coverage run --source='accounts' manage.py test && coverage report
+
+after_success:
+    - codecov
