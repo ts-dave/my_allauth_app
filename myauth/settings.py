@@ -31,6 +31,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     "widget_tweaks",
+    'debug_toolbar',
 
     # django-allauth
     "allauth",
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'myauth.urls'
@@ -112,15 +114,15 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Allauth Authentication Backends
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend', # for signing in to admin site
-    "allauth.account.auth_backends.AuthenticationBackend", # allauth authentication backend
+    'django.contrib.auth.backends.ModelBackend',  # for signing in to admin site
+    # allauth authentication backend
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 # Django-allauth configurations
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "profile"
 ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_SESSION_REMEMBER = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_SUBJECT_PREFIX = 'MyAuth: '
@@ -149,3 +151,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 #     messages.WARNING: 'is-warning',
 #     messages.ERROR: 'is-danger',
 # }
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
