@@ -7,6 +7,8 @@ from django.urls import reverse
 class BaseTest(TestCase):
 
     def setUp(self) -> None:
+        self.home_url = reverse('home')
+        self.profile_url = reverse('profile')
         self.register_url = reverse('account_signup')
         self.login_url = reverse('account_login')
         self.logout_url = reverse('account_logout')
@@ -40,4 +42,8 @@ class TestRegister(BaseTest):
         self.client.post(self.register_url, self.user, format='text/html')
         self.client.post(self.login_url, self.user, format='text/html')
         response = self.client.post(self.logout_url, self.user)
+        self.assertEqual(response.status_code, 302) #TODO: Rewrite test 
+
+    def test_home_view(self):
+        response = self.client.get(self.home_url)
         self.assertEqual(response.status_code, 302)
