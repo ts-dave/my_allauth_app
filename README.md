@@ -10,7 +10,6 @@
 * Email Verification
 * Reset Email and Password
 * Social Login (Google, Facebook)
-* [TODO] - Override django-allauth templates
 
 ## Prerequisites
 * python >= 3.7
@@ -20,7 +19,7 @@
 * [@ts-dave](https://github.com/ts-dave)
 
 ## Contact
-You can contact me via email at [emsonjunior@gmail.com](emsonjunior@gmail.com).
+You can contact me via email at [tsatsu.code@gmail.com](tsatsu.code@gmail.com).
 
 ## License
 This project uses the [MIT License](https://opensource.org/licenses/MIT)
