@@ -3,7 +3,7 @@
 
 <img src="screenshot.png">
 
-Authentication backend using django-allauth
+Authentication backend with social login using django-allauth
 ### Features
 * Sign up
 * Login
